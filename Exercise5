@@ -1,0 +1,111 @@
+Example 1
+#include <iostream>
+#include <stack>
+using namespace std;
+
+void display (stack<string>pl);
+
+int main()
+{
+    stack <string> pl;
+    cout << "Push Elements into stack: " << endl;
+    // add items to the stack
+    pl.push("C++ ");
+    pl.push("Java ");
+    pl.push("Python ");
+
+    display(pl);
+    return 0;
+}
+
+    void display (stack<string>pl){
+       
+   
+        while (!pl.empty())
+        {
+            cout << pl.top() << endl;
+            pl.pop();
+        }
+}
+
+
+
+Example 2
+#include <iostream>
+#include <queue>
+using namespace std;
+
+int main() {
+    queue<string> queue;
+    queue.push("Python");
+    queue.push("Java");
+    queue.push("C++");
+   
+
+    cout << "Queue elements:" << endl;
+    while (!queue.empty()) {
+        cout << queue.front() << endl;
+        queue.pop();
+    }
+
+    cout << "Queue is empty!" << endl;
+
+    return 0;
+}
+
+
+
+Example 3
+#include <iostream>
+#include <stack>
+
+using namespace std;
+
+stack<string> elements;
+int maxSize = 5;
+
+bool isFull() {
+    return elements.size() == maxSize;
+}
+
+void push(string element) {
+    if (isFull()) {
+        cout << "Stack is full! Cannot push element." << endl;
+        return;
+    }
+    elements.push(element);
+}
+
+string top() {
+    if (elements.empty()) {
+        cout << "Stack is empty!" << endl;
+        return "";
+    }
+    return elements.top();
+}
+
+void pop() {
+    if (elements.empty()) {
+        cout << "Stack is empty!" << endl;
+        return;
+    }
+    elements.pop();
+}
+
+int main() {
+    push("A");
+    push("B");
+    push("C");
+    push("D");
+    push("E"); // This will succeed
+
+    if (isFull()) {
+        cout << "Stack is full!" << endl;
+    } else {
+        cout << "Stack is not full." << endl;
+    }
+
+    push("F"); // This will cause a stack overflow
+
+    return 0;
+}
